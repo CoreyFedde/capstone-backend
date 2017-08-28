@@ -1,5 +1,12 @@
 class LoanSerializer < ActiveModel::Serializer
-  attributes :id, :name, :lender, :principal, :interest_rate, :loan_length, :start_date, :minimum_monthly_payment, :current_monthly_payment
+  attributes :id, :name, :lender, :principal, :interest_rate, :loan_length,
+              :start_date, :current_monthly_payment, :monthly_payment
+
+  # def monthly_payment
+  #   return object.principal
+  #   # (object.principal * object.interest_rate) /
+  #   # (1 - (1 + object.interest_rate)^(-1))
+  # end
 end
 
 #Loan
