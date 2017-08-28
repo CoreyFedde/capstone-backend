@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170825181539) do
+ActiveRecord::Schema.define(version: 20170828181552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,27 +26,26 @@ ActiveRecord::Schema.define(version: 20170825181539) do
   create_table "loans", force: :cascade do |t|
     t.string   "name"
     t.string   "lender"
-    t.integer  "principal"
-    t.integer  "interest_rate"
     t.integer  "loan_length"
     t.date     "start_date"
-    t.integer  "minimum_monthly_payment"
-    t.integer  "current_monthly_payment"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                                       null: false
+    t.datetime "updated_at",                                       null: false
     t.integer  "user_id"
+    t.decimal  "principal",               precision: 10, scale: 2
+    t.decimal  "current_monthly_payment", precision: 10, scale: 2
+    t.decimal  "interest_rate",           precision: 4,  scale: 2
     t.index ["user_id"], name: "index_loans_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",           null: false
-    t.string   "token",           null: false
-    t.string   "password_digest", null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "email",                                    null: false
+    t.string   "token",                                    null: false
+    t.string   "password_digest",                          null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.string   "first_name"
-    t.integer  "income"
-    t.integer  "rent"
+    t.decimal  "income",          precision: 10, scale: 2
+    t.decimal  "rent",            precision: 10, scale: 2
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["token"], name: "index_users_on_token", unique: true, using: :btree
   end
