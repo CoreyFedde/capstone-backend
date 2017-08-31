@@ -1,10 +1,10 @@
 #!/bin/bash
 EMAIL="corey@gmail"
-PASSWORD="1"
+PASSWORD="2"
 
 API="${API_ORIGIN:-http://localhost:4741}"
 URL_PATH="/sign-in"
-curl "https://thawing-dusk-42030.herokuapp.com/sign-in" \
+curl "${API}${URL_PATH}" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \

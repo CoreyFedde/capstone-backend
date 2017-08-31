@@ -1,5 +1,5 @@
 class LoansController < ProtectedController
-  before_action :set_loan, only: [:update, :destroy]
+  before_action :set_loan, only: [:show, :update, :destroy]
 
   # GET /loans
   def index
@@ -10,6 +10,7 @@ class LoansController < ProtectedController
 
   # GET /loans/1
   def show
+    p "loan is", @loan
     render json: @loan
   end
 
