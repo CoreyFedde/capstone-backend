@@ -1,6 +1,6 @@
 LENDER="changed"
 ID="1"
-TOKEN="BAhJIiVjMTAwYTI2ZmJhYzIyOTg5NThhNTlhOTdhMDUzMTY4YQY6BkVG--934d1e72d68391bc0f646f06f343843c707016bf"
+TOKEN="BAhJIiUyOGU0MTM3OWQwMDI1MzdmOTMwODY3YWQxMjU1MjdjYQY6BkVG--1afc31b52c73c19d4ce9270eac8596a0d129befb"
 
 curl --include --request PATCH http://localhost:4741/loans/$ID \
   --header "Content-Type: application/json" \

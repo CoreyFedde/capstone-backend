@@ -1,6 +1,7 @@
 
 class Loan < ApplicationRecord
   belongs_to :user, foreign_key: 'user_id'
+  validates :name, :loan_length, :principal, :interest_rate, presence: true
 
 #reader_attr
   def principal
