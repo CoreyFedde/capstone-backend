@@ -1,4 +1,6 @@
 #!/bin/bash
+EMAIL="corey"
+PASSWORD="1"
 
 API="${API_ORIGIN:-http://localhost:4741}"
 URL_PATH="/sign-up"
