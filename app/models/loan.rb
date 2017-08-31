@@ -31,7 +31,7 @@ class Loan < ApplicationRecord
     # interest_rate
     # (1 - (1 + interest_rate)**(-1))
     # (principal * interest_rate) / (0)
-    (principal * interest_rate_monthly) / (1 - (1 + interest_rate_monthly)**(-loan_length))
+    ((principal * interest_rate_monthly) / (1 - (1 + interest_rate_monthly)**(-loan_length))).round(2)
       # (principal * ((interest_rate / 100) / 12)) / (1 - (1 + ((interest_rate / 100) / 12))**(-1))
     end
   end
@@ -42,9 +42,9 @@ class Loan < ApplicationRecord
     monthly_payment - monthly_interest
   end
   def total_amount
-    monthly_payment * loan_length
+    (monthly_payment * loan_length).round(2)
   end
   def total_interest
-    (monthly_payment * loan_length) - principal
+    ((monthly_payment * loan_length) - principal).round(2)
   end
 end

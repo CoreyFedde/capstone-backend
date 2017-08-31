@@ -1,4 +1,4 @@
-TOKEN="BAhJIiUwMzEwZTFjNDE0ODQ1NjA0MDIzOTgyYjA1NDk1NGQ5MQY6BkVG--5e3af25118062b277cb6f750433bd231cfcd74f3"
+TOKEN="BAhJIiViOTE0ZjQ4ZTM5NTc2M2FmZGIxMTZmZWNkZTkwNjRjYgY6BkVG--3e3918a4a22e98ad00e21261bff62504e6bf4db1"
 NAME="Curl test"
 LENDER="Chase"
 PRINCIPAL="20000"
@@ -8,7 +8,7 @@ START="08-25-2017"
 MIN="200"
 CURRENT="200"
 
-curl --include --request POST http://localhost:4741/loans \
+curl --include --request POST https://thawing-dusk-42030.herokuapp.com/loans \
   --header "Content-Type: application/json" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
