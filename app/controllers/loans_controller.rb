@@ -1,4 +1,5 @@
 class LoansController < ProtectedController
+  # inherits from ProtectedController to authneticate in before_action
   before_action :set_loan, only: [:show, :update, :destroy]
 
   # GET /loans
@@ -10,7 +11,7 @@ class LoansController < ProtectedController
 
   # GET /loans/1
   def show
-    p "loan is", @loan
+    # p "loan is", @loan
     render json: @loan
   end
 
@@ -48,8 +49,10 @@ class LoansController < ProtectedController
     # Only allow a trusted parameter "white list" through.
     def loan_params
       params.require(:loan).permit(:name, :lender, :principal, :interest_rate,
-      :loan_length, :start_date, :current_monthly_payment, :monthly_payment, :monthly_interest,
-      :monthly_principal, :interest_rate_monthly, :loan_length_periods, :period,
-      :total_amount, :total_interest, :monthly_balance)
+                                    :loan_length, :start_date, :current_monthly_payment,
+                                    :monthly_payment, :monthly_interest,
+                                    :monthly_principal, :interest_rate_monthly,
+                                    :loan_length_periods, :period, :total_amount,
+                                    :total_interest, :monthly_balance)
     end
 end
