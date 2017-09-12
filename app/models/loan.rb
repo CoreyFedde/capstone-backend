@@ -47,13 +47,15 @@ end
 def monthly_interest
   interest_array = []
   y = 0
+  cumulative_interest = 0
   currentValue = principal
   while y < loan_length_periods do
     interest_holder = currentValue * interest_rate_monthly
+    cumulative_interest += interest_holder
     principal_holder = monthly_payment - interest_holder
     balance_holder = currentValue - principal_holder
     currentValue = balance_holder
-    interest_array.push(interest_holder.round(2))
+    interest_array.push(cumulative_interest.round(2))
     # @principal_array.push(monthly_principal.round(2))
     # @balance_array.push(currentValue.round(2))
      y +=1
@@ -64,14 +66,16 @@ end
 def monthly_principal
   principal_array = []
   y = 0
+  cumulative_principal = 0
   currentValue = principal
   while y < loan_length_periods do
     interest_holder = currentValue * interest_rate_monthly
     principal_holder = monthly_payment - interest_holder
+    cumulative_principal = cumulative_principal + principal_holder
     balance_holder = currentValue - principal_holder
     currentValue = balance_holder
     # interest_array.push(interest_holder.round(2))
-    principal_array.push(principal_holder.round(2))
+    principal_array.push(cumulative_principal.round(2))
     # @balance_array.push(currentValue.round(2))
      y +=1
   end
